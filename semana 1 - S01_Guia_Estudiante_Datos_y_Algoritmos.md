@@ -3,389 +3,787 @@
 ## Algoritmo y Estructura de Datos basado en IA
 
 **Sesión 01: Datos y algoritmos**  
-**Práctica:** Fundamentos de algoritmos, datos y estructuras de datos  
+**Modalidad:** clase guiada y participativa  
+**Práctica:** comprender algoritmos, datos y estructuras mediante ejemplos, participación y ejecución  
 **Elaborado por el docente**  
 **Proyecto académico:** Lideratec Academy
 
 ---
 
-## 1. Propósito de la práctica
+# 1. Propósito de la sesión
 
-Esta guía te permitirá reconocer cómo se relacionan los datos, los algoritmos y las estructuras de datos en la resolución de problemas. Trabajarás desde la identificación de entradas, procesos y salidas hasta la clasificación de estructuras de datos y una implementación básica en Java con un arreglo.
+Esta guía está diseñada para que aprendas **participando en clase**, no solo leyendo definiciones. En cada bloque seguirás esta secuencia:
 
-La meta no es memorizar definiciones aisladas. La meta es que puedas observar un problema, identificar qué datos intervienen, ordenar los pasos de solución y seleccionar una forma adecuada de organizar la información.
+> **Observo → comprendo → respondo → practico → verifico → explico con mis propias palabras.**
 
-## 2. Resultado de aprendizaje observable
+Durante la sesión resolverás ejemplos con el docente, realizarás predicciones, compararás respuestas, corregirás errores y comprobarás resultados antes de continuar.
 
-Al finalizar la sesión podrás:
+---
 
-- Definir un algoritmo como una secuencia ordenada, precisa, definida y finita de pasos.
-- Identificar entrada, proceso y salida en un problema sencillo.
+# 2. Resultado de aprendizaje observable
+
+Al finalizar podrás:
+
+- Explicar qué es un algoritmo con tus propias palabras.
+- Reconocer si una secuencia es precisa, definida y finita.
+- Identificar entrada, proceso y salida.
 - Diferenciar datos enteros, reales, lógicos, caracteres y cadenas.
-- Clasificar estructuras de datos según disposición, variación de tamaño y lugar de almacenamiento.
-- Diferenciar estructuras estáticas y dinámicas a partir de sus características.
-- Relacionar la elección de una estructura de datos con el algoritmo que procesa la información.
-- Ejecutar un ejemplo básico en Java que utiliza datos y un arreglo.
+- Clasificar estructuras según disposición, variación de tamaño y almacenamiento.
+- Diferenciar estructuras estáticas y dinámicas.
+- Reconocer los ejemplos de pila, cola, árbol, lista y arreglo trabajados en clase.
+- Analizar un arreglo básico en Java.
+- Predecir resultados antes de ejecutar el código.
+- Explicar la relación entre algoritmo y estructura de datos.
 
-## 3. Duración sugerida
+---
 
-**110 minutos**, distribuidos en explicación, demostración, práctica guiada, comprobación y cierre.
+# 3. Cómo participaremos
 
-## 4. Conocimientos previos mínimos
+Cuando aparezca una sección como **Piensa**, **Predice**, **Participa**, **Comprueba** o **Mini reto**:
 
-Para desarrollar esta práctica necesitas:
+1. Lee el caso.
+2. Piensa antes de mirar la solución.
+3. Escribe tu respuesta tentativa.
+4. Comparte o contrasta tu respuesta en clase.
+5. Corrige si es necesario.
+6. Explica por qué tu respuesta es correcta.
 
-- Reconocer qué es un problema y qué significa resolverlo mediante pasos.
-- Manejar operaciones aritméticas básicas.
-- Poder crear y guardar un archivo de texto.
-- Para el bloque Java: saber abrir una terminal o un entorno Java ya instalado. No se requiere dominar programación orientada a objetos.
+---
 
-## 5. Herramientas y recursos
+# 4. Preparación mínima
 
-| Componente | Función en la práctica | ¿Debe instalarse? | Orden |
-|---|---|---:|---:|
-| Cuaderno o editor de texto | Diseñar algoritmos y responder actividades | No | Primero |
-| JDK de Java | Compilar y ejecutar el ejemplo Java | Solo si el equipo no tiene Java | Después |
-| Terminal o consola | Comprobar Java y ejecutar el programa | No, forma parte del sistema | Después |
+Para la parte conceptual necesitas:
 
-### Ruta recomendada para Java
+- cuaderno o archivo de notas;
+- editor de texto;
+- calculadora simple si el docente la autoriza.
 
-Si el laboratorio ya tiene Java instalado, **no reinstales nada**. Primero ejecuta la comprobación indicada en esta guía.
+Para el ejemplo Java:
 
-Si el equipo no tiene un JDK y el docente no ha definido otra versión institucional, utiliza como referencia **JDK 25 LTS**, porque es una versión de soporte de largo plazo disponible actualmente.
+- JDK disponible en el laboratorio;
+- terminal, PowerShell, símbolo del sistema o entorno autorizado.
 
-Página oficial de descarga:
+## Comprobación
 
-https://www.oracle.com/java/technologies/downloads/
-
-En la página oficial:
-
-1. Ubica la sección **JDK 25**.
-2. Selecciona el sistema operativo correspondiente.
-3. En Windows, utiliza el instalador para arquitectura x64 si tu equipo institucional es x64.
-4. No selecciones versiones antiguas únicamente porque aparezcan en la misma página.
-5. Si tu institución utiliza otra distribución o versión de Java, sigue la versión indicada por el docente.
-
-> **Importante:** para esta sesión, Java es un medio de implementación. Los conceptos principales son algoritmo, datos y estructuras de datos.
-
-## 6. Preparación del entorno
-
-### Paso 1. Comprobar si Java ya está instalado
-
-**Objetivo:** verificar si el equipo puede ejecutar Java antes de intentar instalarlo.
-
-**Dónde hacerlo:** terminal, PowerShell o símbolo del sistema.
-
-**Acción:** abre una terminal y escribe:
+Ejecuta:
 
 ```text
 java -version
 ```
 
-Luego comprueba el compilador:
+Luego:
 
 ```text
 javac -version
 ```
 
-**Qué debería ocurrir:** la terminal debe mostrar una versión de Java y una versión de `javac`.
-
-**Cómo comprobarlo:** si ambos comandos muestran una versión, el entorno está listo para el ejemplo de esta sesión.
-
-**Si aparece un problema:** si el sistema indica que el comando no se reconoce, Java puede no estar instalado o no estar disponible en la variable de entorno `PATH`. Informa al docente antes de modificar configuraciones del laboratorio.
-
-**Antes de continuar:** confirma que puedes ejecutar `java -version` y `javac -version`, o que el docente ha indicado otra forma de ejecutar Java.
-
-### Paso 2. Instalar Java solo si es necesario
-
-**Objetivo:** disponer de un JDK cuando el equipo no lo tenga.
-
-**Dónde hacerlo:** página oficial de Java y sistema operativo del equipo.
-
-**Acción:** descarga el instalador correspondiente a la versión institucional o, en ausencia de otra indicación, JDK 25 LTS.
-
-**Qué debería ocurrir:** al finalizar la instalación, la aplicación debe quedar disponible para el sistema.
-
-**Cómo comprobarlo:** cierra y vuelve a abrir la terminal y ejecuta nuevamente:
-
-```text
-java -version
-javac -version
-```
-
-**Si aparece un problema:** no instales múltiples versiones sin autorización. Si el laboratorio exige permisos administrativos, solicita apoyo al docente o al responsable del laboratorio.
-
-### Punto de control
-
-- [ ] Identifiqué la herramienta principal que utilizaré.
-- [ ] Comprobé si Java ya estaba instalado.
-- [ ] Instalé Java solo si fue necesario y autorizado.
-- [ ] Ejecuté `java -version`.
-- [ ] Ejecuté `javac -version`.
-- [ ] Puedo continuar con la práctica.
+Si ambos comandos muestran una versión, puedes continuar. Si alguno no se reconoce, consulta al docente antes de modificar el equipo.
 
 ---
 
 # BLOQUE 1. ¿QUÉ ES UN ALGORITMO?
 
-**Objetivo:** reconocer las características fundamentales de un algoritmo.
+## Objetivo
 
-**Concepto trabajado:** algoritmo, precisión, definición y finitud.
+Comprender que un algoritmo no es simplemente “hacer algo”, sino describir una solución mediante pasos ordenados.
 
-**Explicación breve:** un algoritmo es una secuencia ordenada de pasos que conduce a la solución de un problema. Para que sea útil, sus pasos deben indicar qué hacer y en qué orden, producir el mismo resultado cuando se reciben los mismos datos y terminar después de una cantidad finita de pasos.
+## 1.1 Activación
 
-## Ejemplo guiado: calcular el total de una compra
+Imagina que alguien te dice:
 
-Supón que una persona compra 3 unidades de un producto cuyo precio unitario es 20.
+> “Prepara una limonada.”
 
-Un algoritmo sencillo puede expresarse así:
+### Piensa
+
+¿La instrucción anterior es suficientemente clara para que cualquier persona obtenga exactamente el mismo resultado?
+
+Respuesta:
+
+____________________________________________________________________
+
+¿Por qué?
+
+____________________________________________________________________
+
+## 1.2 Convertimos una intención en pasos
 
 ```text
-1. Recibir el precio unitario.
-2. Recibir la cantidad.
-3. Multiplicar precio por cantidad.
-4. Mostrar el total.
-5. Finalizar.
+1. Tomar un vaso.
+2. Agregar agua.
+3. Agregar jugo de limón.
+4. Agregar azúcar.
+5. Mezclar.
+6. Servir.
+7. Finalizar.
 ```
 
-### Paso a paso
+Ahora existe una secuencia, pero todavía podemos preguntar cuánto de cada ingrediente usar. Esto permite entender que un algoritmo debe reducir la ambigüedad.
 
-1. **Precisión:** cada paso indica una acción concreta.
-2. **Definición:** con precio 20 y cantidad 3, el resultado siempre será 60.
-3. **Finitud:** el algoritmo termina después de mostrar el total.
+## 1.3 Definición
 
-### Actividad para desarrollar
+Un algoritmo es una **secuencia ordenada de pasos, sin ambigüedades, que conduce a la solución de un problema**.
 
-Diseña un algoritmo en lenguaje natural para calcular el promedio de tres notas.
+### Participa
 
-**Espacio para responder:**
+Completa:
 
-1. ________________________________________________________________
-2. ________________________________________________________________
-3. ________________________________________________________________
-4. ________________________________________________________________
-5. ________________________________________________________________
+> Un algoritmo sirve para ___________________________________________
 
-**Resultado esperado:** una secuencia ordenada, sin ambigüedades y con un final identificable.
+> y necesita que los pasos _________________________________________
 
-**Error frecuente:** escribir una intención general como “calcular el promedio” sin describir los pasos que permiten obtenerlo.
+---
 
-**Mini reto:** revisa tu algoritmo y marca dónde se evidencia que es preciso, definido y finito.
+# 1.4 Características fundamentales
+
+## Preciso
+
+Debe indicar qué hacer y en qué orden.
+
+### Ejemplo
+
+```text
+1. Leer precio.
+2. Leer cantidad.
+3. Multiplicar precio por cantidad.
+4. Mostrar resultado.
+```
+
+### Contraejemplo
+
+```text
+1. Hacer el cálculo.
+2. Ver los datos.
+3. Mostrar algo.
+```
+
+### Participa
+
+¿Cuál de los dos ejemplos es más preciso?
+
+____________________________________________________________________
+
+¿Qué palabras vuelven ambiguo al segundo?
+
+____________________________________________________________________
+
+---
+
+## Definido
+
+Con los mismos datos debe producir el mismo resultado.
+
+### Ejemplo
+
+```text
+precio = 20
+cantidad = 3
+```
+
+Proceso:
+
+```text
+20 × 3
+```
+
+Resultado:
+
+```text
+60
+```
+
+### Predice
+
+Si ejecutamos el mismo algoritmo diez veces con los mismos datos, ¿el resultado debería cambiar?
+
+- [ ] Sí
+- [ ] No
+
+Justificación:
+
+____________________________________________________________________
+
+---
+
+## Finito
+
+Debe terminar después de una cantidad finita de pasos.
+
+### Ejemplo correcto
+
+```text
+1. Leer un número.
+2. Multiplicarlo por 2.
+3. Mostrar resultado.
+4. Finalizar.
+```
+
+### Ejemplo problemático
+
+```text
+1. Mostrar "Procesando".
+2. Volver al paso 1.
+```
+
+### Participa
+
+¿Qué característica no cumple el segundo ejemplo?
+
+____________________________________________________________________
+
+---
+
+# 1.5 Ejemplo completo
+
+## Problema
+
+Calcular el total de una compra de 3 unidades con precio unitario de 20.
+
+### Paso 1. Datos
+
+```text
+precio = 20
+cantidad = 3
+```
+
+### Paso 2. Operación
+
+```text
+total = precio × cantidad
+```
+
+### Paso 3. Sustituir
+
+```text
+total = 20 × 3
+```
+
+### Paso 4. Resultado
+
+```text
+total = 60
+```
+
+### Paso 5. Algoritmo
+
+```text
+1. Recibir precio.
+2. Recibir cantidad.
+3. Multiplicar precio por cantidad.
+4. Guardar el resultado como total.
+5. Mostrar total.
+6. Finalizar.
+```
+
+## Punto de control
+
+- [ ] Comprendo qué significa preciso.
+- [ ] Comprendo qué significa definido.
+- [ ] Comprendo qué significa finito.
+
+### Explícalo con tus palabras
+
+¿Qué diferencia existe entre decir “calcular el total” y escribir un algoritmo completo?
+
+____________________________________________________________________
+
+____________________________________________________________________
 
 ---
 
 # BLOQUE 2. ENTRADA, PROCESO Y SALIDA
 
-**Objetivo:** separar correctamente las tres partes fundamentales de un algoritmo.
+## Objetivo
 
-**Concepto trabajado:** entrada, proceso y salida.
+Separar correctamente la información inicial, las operaciones y el resultado.
 
-**Explicación breve:** todo algoritmo necesita información de partida, operaciones para transformar esa información y un resultado final.
+## 2.1 Idea visual
 
-## Ejemplo guiado
+```text
+ENTRADA → PROCESO → SALIDA
+```
 
-Problema: calcular el total de una compra.
-
-| Parte | Contenido |
-|---|---|
-| Entrada | Precio unitario y cantidad |
-| Proceso | Multiplicar precio unitario por cantidad |
-| Salida | Total de la compra |
-
-### Actividad para desarrollar
+## 2.2 Ejemplo resuelto
 
 Problema: calcular el área de un rectángulo.
 
-Completa:
+```text
+base = 8
+altura = 5
+```
 
-- **Entrada:** _______________________________________________
-- **Proceso:** ______________________________________________
-- **Salida:** _______________________________________________
+Entrada:
 
-### Punto de control
+```text
+base, altura
+```
 
-Responde:
+Proceso:
 
-1. ¿Una salida puede existir sin que el algoritmo haya realizado un proceso? ¿Por qué?
+```text
+area = base × altura
+```
 
-   ________________________________________________________________
+Salida:
 
-2. Si falta un dato necesario, ¿qué parte del algoritmo está incompleta?
+```text
+40
+```
 
-   ________________________________________________________________
+---
 
-3. En el cálculo del promedio de tres notas, ¿cuáles son las entradas?
+# 2.3 Participación guiada
 
-   ________________________________________________________________
+## Caso
 
-**Error frecuente:** confundir el dato de entrada con el resultado. Por ejemplo, en una compra la cantidad es entrada; el total es salida.
+Calcular el promedio de:
+
+```text
+14, 16, 18
+```
+
+Antes de ver la solución completa:
+
+### Entrada
+
+____________________________________________________________________
+
+### Proceso
+
+____________________________________________________________________
+
+### Salida
+
+____________________________________________________________________
+
+## Solución
+
+```text
+14 + 16 + 18 = 48
+48 / 3 = 16
+```
+
+Salida:
+
+```text
+Promedio = 16
+```
+
+---
+
+# 2.4 Actividad en clase
+
+Una persona compra 4 cuadernos a 7.50 cada uno.
+
+| Parte | Tu respuesta |
+|---|---|
+| Entrada | |
+| Proceso | |
+| Salida | |
+
+### Predice
+
+Resultado esperado:
+
+____________________________________________________________________
+
+### Comprueba
+
+```text
+____________________________________
+```
+
+## Mini reto
+
+Crea un problema con dos entradas, un proceso y una salida.
+
+Problema:
+
+____________________________________________________________________
+
+Entrada:
+
+____________________________________________________________________
+
+Proceso:
+
+____________________________________________________________________
+
+Salida:
+
+____________________________________________________________________
 
 ---
 
 # BLOQUE 3. DATOS Y TIPOS DE DATOS
 
-**Objetivo:** identificar el tipo de dato adecuado según la información que se desea representar.
+## Objetivo
 
-**Concepto trabajado:** dato, entero, real, lógico, carácter y cadena.
+Reconocer qué clase de valor representa cada dato.
 
-**Explicación breve:** un dato representa un objeto o valor con el que trabaja un algoritmo. El tipo de dato permite describir qué clase de valor se está manejando.
+## 3.1 Ejemplos
 
-## Tabla de referencia
+```text
+19
+29.90
+true
+'A'
+"Ana Torres"
+```
 
-| Tipo | Ejemplo | Interpretación |
+| Tipo | Ejemplo | Significado |
 |---|---|---|
-| Entero | `25` | Valor numérico sin parte decimal |
-| Real | `19.90` | Valor numérico con parte decimal |
-| Lógico | `true` / `false` | Condición de verdad o falsedad |
+| Entero | `25` | Número sin parte decimal |
+| Real | `19.90` | Número con parte decimal |
+| Lógico | `true` / `false` | Verdadero o falso |
 | Carácter | `'A'` | Un solo carácter |
 | Cadena | `"Lideratec"` | Secuencia de caracteres |
 
-## Actividad guiada: clasifica los datos
+---
 
-Completa el tipo de dato más apropiado.
+# 3.2 Ejemplo guiado
 
-| Dato | Valor de ejemplo | Tipo |
-|---|---:|---|
-| Edad de un estudiante | 19 | __________________ |
-| Precio de un producto | 29.90 | __________________ |
-| ¿Está activo? | true | __________________ |
-| Inicial del apellido | 'E' | __________________ |
-| Nombre completo | "Ana Torres" | __________________ |
+```text
+edad = 19
+promedio = 16.5
+matriculado = true
+seccion = 'A'
+nombre = "Lucía Torres"
+```
 
-### Aplicación
+Clasificación:
 
-Imagina que un algoritmo registra un producto. Propón un dato de cada tipo:
-
-- Entero: __________________________________________
-- Real: ____________________________________________
-- Lógico: __________________________________________
-- Carácter: ________________________________________
-- Cadena: __________________________________________
-
-**Resultado esperado:** cada valor debe corresponder coherentemente con el tipo elegido.
-
-**Error frecuente:** tratar como número un valor que solo se utiliza como texto, o usar un carácter cuando se necesita una cadena completa.
+- `edad` → entero.
+- `promedio` → real.
+- `matriculado` → lógico.
+- `seccion` → carácter.
+- `nombre` → cadena.
 
 ---
 
-# BLOQUE 4. CLASIFICACIÓN DE LAS ESTRUCTURAS DE DATOS
+# 3.3 Participa
 
-**Objetivo:** clasificar estructuras de datos usando los tres criterios trabajados en la sesión.
+| Dato | Valor | Tipo |
+|---|---:|---|
+| Cantidad de productos | 5 | |
+| Precio | 49.90 | |
+| Disponible | false | |
+| Categoría | 'B' | |
+| Producto | "Mouse" | |
 
-**Concepto trabajado:** disposición, variación de tamaño y lugar de almacenamiento.
+### Pregunta
 
-## 4.1 Según su disposición
+¿Qué diferencia existe entre `'A'` y `"Ana"`?
 
-- **Lineales:** los elementos se organizan de forma secuencial. Ejemplos trabajados: arreglos, listas y diccionarios.
-- **No lineales:** permiten una disposición no secuencial. Ejemplos trabajados: árboles y grafos.
+____________________________________________________________________
 
-## 4.2 Según su variación en tamaño
+____________________________________________________________________
 
-- **Estáticas:** mantienen un tamaño fijo durante la ejecución.
-- **Dinámicas:** pueden aumentar o disminuir su cantidad de elementos durante la ejecución.
+## Mini reto
 
-## 4.3 Según el lugar de almacenamiento
+Propón un ejemplo para cada tipo.
 
-- **Volátiles:** se mantienen en memoria mientras el programa está en ejecución y desaparecen al finalizar.
-- **Permanentes:** se almacenan en dispositivos auxiliares y perduran en el tiempo, como los ficheros.
+Entero: ___________________________________________________________
 
-## Actividad de clasificación
+Real: _____________________________________________________________
 
-Completa la tabla con la clasificación indicada en la sesión.
+Lógico: ___________________________________________________________
 
-| Caso | Clasificación principal | Justificación breve |
+Carácter: _________________________________________________________
+
+Cadena: ___________________________________________________________
+
+---
+
+# BLOQUE 4. CLASIFICACIÓN DE ESTRUCTURAS DE DATOS
+
+## Objetivo
+
+Comprender que una estructura puede clasificarse mediante diferentes criterios.
+
+## 4.1 Según disposición
+
+### Lineales
+
+Los elementos se organizan secuencialmente.
+
+```text
+[10] → [20] → [30] → [40]
+```
+
+Ejemplos trabajados: arreglos, listas y diccionarios.
+
+### No lineales
+
+No forman necesariamente una única secuencia.
+
+```text
+        A
+       / \
+      B   C
+```
+
+Ejemplos: árboles y grafos.
+
+### Participa
+
+```text
+[5] → [8] → [12] → [20]
+```
+
+¿Lineal o no lineal?
+
+____________________________________________________________________
+
+---
+
+# 4.2 Según variación de tamaño
+
+### Estáticas
+
+Tamaño fijo durante la ejecución.
+
+```text
+[14] [16] [18] [15] [17]
+```
+
+### Dinámicas
+
+Pueden crecer o reducirse durante la ejecución.
+
+```text
+Inicio:
+[10] → [20]
+
+Después:
+[10] → [20] → [30]
+```
+
+---
+
+# 4.3 Según almacenamiento
+
+### Volátiles
+
+Existen en memoria durante la ejecución.
+
+### Permanentes
+
+Perduran en dispositivos auxiliares, como ficheros.
+
+---
+
+# 4.4 Ejemplo con tres criterios
+
+Caso: arreglo de cinco notas en memoria.
+
+| Criterio | Clasificación |
+|---|---|
+| Disposición | Lineal |
+| Variación de tamaño | Estática |
+| Almacenamiento | Volátil |
+
+### Participa
+
+¿Por qué una misma estructura puede ser lineal, estática y volátil?
+
+____________________________________________________________________
+
+____________________________________________________________________
+
+---
+
+# 4.5 Actividad guiada
+
+| Caso | Criterio | Clasificación |
 |---|---|---|
-| Arreglo de 10 notas | __________________ | ______________________________ |
-| Lista enlazada que crece al agregar elementos | __________________ | ______________________________ |
-| Árbol que representa una jerarquía | __________________ | ______________________________ |
-| Fichero guardado en almacenamiento | __________________ | ______________________________ |
-| Arreglo que vive durante la ejecución | __________________ | ______________________________ |
-
-### Pregunta de comprobación
-
-¿Una estructura puede ser clasificada utilizando más de un criterio? Explica con un ejemplo.
-
-________________________________________________________________
-
-________________________________________________________________
-
-**Error frecuente:** pensar que “lineal”, “estática” y “volátil” son categorías excluyentes entre sí. Cada término responde a un criterio diferente.
+| Árbol de jerarquía | Disposición | |
+| Lista que crece | Tamaño | |
+| Arreglo de 10 posiciones | Tamaño | |
+| Fichero almacenado | Almacenamiento | |
+| Arreglo usado mientras corre el programa | Almacenamiento | |
 
 ---
 
 # BLOQUE 5. ESTRUCTURAS ESTÁTICAS Y DINÁMICAS
 
-**Objetivo:** diferenciar estructuras estáticas y dinámicas a partir de su tamaño, asignación y flexibilidad.
+## Objetivo
 
-**Concepto trabajado:** estructuras estáticas y dinámicas.
+Decidir cuándo un problema trabaja con una cantidad fija o variable de elementos.
 
-## Comparación
+## Caso A
+
+Exactamente cinco evaluaciones:
+
+```text
+[ ] [ ] [ ] [ ] [ ]
+```
+
+Elección:
+
+```text
+Estática
+```
+
+## Caso B
+
+Cantidad de solicitudes que puede crecer:
+
+```text
+Dinámica
+```
 
 | Aspecto | Estática | Dinámica |
 |---|---|---|
-| Tamaño | Fijo | Puede crecer o reducirse |
-| Momento de asignación | Definido previamente | Se ajusta durante la ejecución |
-| Gestión | Más simple | Más flexible y con mayor complejidad de administración |
-| Ejemplo trabajado | Arreglo | Lista enlazada, pila, cola, árbol |
-
-## Ejemplo conceptual
-
-Un curso tiene exactamente 5 evaluaciones y se desea almacenar una nota por evaluación. Un arreglo de cinco posiciones es suficiente porque la cantidad de elementos ya está definida.
-
-En cambio, si se necesita registrar una cantidad que cambia durante la ejecución, una estructura dinámica resulta más adecuada porque puede ajustarse al volumen de datos.
-
-### Actividad
-
-Para cada situación, decide si conviene pensar en una estructura estática o dinámica.
-
-1. Registrar las 7 notas de una semana de práctica.
-   - Elección: __________________
-   - Motivo: ______________________________________________________
-
-2. Registrar elementos cuya cantidad puede aumentar o disminuir durante la ejecución.
-   - Elección: __________________
-   - Motivo: ______________________________________________________
-
-3. Guardar una jerarquía de datos.
-   - Estructura mencionada en la sesión: __________________________
-
-4. Procesar elementos siguiendo “último en entrar, primero en salir”.
-   - Estructura mencionada en la sesión: __________________________
-
-5. Procesar elementos siguiendo “primero en entrar, primero en salir”.
-   - Estructura mencionada en la sesión: __________________________
-
-**Error frecuente:** elegir una estructura solo por costumbre sin observar cómo cambia el volumen de datos o cómo deben organizarse los elementos.
+| Tamaño | Fijo | Puede cambiar |
+| Flexibilidad | Menor | Mayor |
+| Gestión | Más simple | Más compleja |
+| Ejemplo | Arreglo | Lista enlazada |
 
 ---
 
-# BLOQUE 6. IMPLEMENTACIÓN BÁSICA EN JAVA
+# 5.1 Participa
 
-**Objetivo:** conectar datos, algoritmo y una estructura estática mediante un ejemplo pequeño en Java.
+## Caso 1
 
-**Concepto trabajado:** datos, arreglo, proceso y salida.
+Guardar exactamente siete notas.
 
-Este ejemplo utiliza un arreglo porque es una estructura estática explícitamente trabajada en la sesión. No es necesario estudiar todavía estructuras dinámicas en código.
+- [ ] Estática
+- [ ] Dinámica
 
-## Paso 1. Crear el archivo
+¿Por qué?
 
-**Dónde hacerlo:** editor de texto o entorno Java disponible en el laboratorio.
+____________________________________________________________________
 
-Crea un archivo llamado:
+## Caso 2
+
+Registrar elementos cuya cantidad puede crecer durante la ejecución.
+
+- [ ] Estática
+- [ ] Dinámica
+
+¿Por qué?
+
+____________________________________________________________________
+
+---
+
+# 5.2 Pila y cola
+
+## Pila
+
+```text
+LIFO
+Last In, First Out
+Último en entrar, primero en salir
+```
+
+Ejemplo:
+
+```text
+Plato 3  ← sale primero
+Plato 2
+Plato 1
+```
+
+## Cola
+
+```text
+FIFO
+First In, First Out
+Primero en entrar, primero en salir
+```
+
+Ejemplo:
+
+```text
+Persona 1 → Persona 2 → Persona 3
+```
+
+### Participa
+
+En una pila de platos, ¿cuál retiras primero?
+
+____________________________________________________________________
+
+En una cola de estudiantes, ¿quién debería ser atendido primero?
+
+____________________________________________________________________
+
+---
+
+# BLOQUE 6. DEL ALGORITMO AL CÓDIGO EN JAVA
+
+## Objetivo
+
+Comprobar que el código implementa un razonamiento previo.
+
+## 6.1 Problema
+
+Cinco notas:
+
+```text
+14, 16, 18, 15, 17
+```
+
+Queremos:
+
+1. sumar;
+2. calcular promedio;
+3. determinar si el promedio es mayor o igual que 13.
+
+## 6.2 Diseñamos el algoritmo primero
+
+```text
+1. Guardar las cinco notas.
+2. Sumar las cinco notas.
+3. Dividir la suma entre 5.
+4. Comparar el promedio con 13.
+5. Mostrar suma.
+6. Mostrar promedio.
+7. Mostrar aprobado.
+8. Finalizar.
+```
+
+## 6.3 Predice
+
+Suma:
+
+____________________________________________________________________
+
+Promedio:
+
+____________________________________________________________________
+
+`aprobado`:
+
+____________________________________________________________________
+
+---
+
+# 6.4 Crear el archivo
 
 ```text
 DatosYAlgoritmos.java
 ```
 
-## Paso 2. Escribir el programa
+## 6.5 Código
 
 ```java
 public class DatosYAlgoritmos {
+
     public static void main(String[] args) {
+
         int[] notas = {14, 16, 18, 15, 17};
 
-        int suma = notas[0] + notas[1] + notas[2] + notas[3] + notas[4];
+        int suma =
+                notas[0] +
+                notas[1] +
+                notas[2] +
+                notas[3] +
+                notas[4];
+
         double promedio = suma / 5.0;
+
         boolean aprobado = promedio >= 13.0;
 
         System.out.println("Suma: " + suma);
@@ -395,32 +793,57 @@ public class DatosYAlgoritmos {
 }
 ```
 
-## Paso 3. Relacionar el código con los conceptos
+---
 
-- `int[] notas`: estructura estática de tamaño definido.
-- `int suma`: dato entero.
-- `double promedio`: dato real.
-- `boolean aprobado`: dato lógico.
-- La suma y el cálculo del promedio forman parte del **proceso**.
-- Los mensajes de consola representan la **salida**.
+# 6.6 Leemos el código juntos
 
-## Paso 4. Compilar
+```java
+int[] notas = {14, 16, 18, 15, 17};
+```
 
-**Dónde hacerlo:** terminal ubicada en la carpeta donde guardaste el archivo.
+Representa un arreglo de cinco enteros.
+
+Índices:
+
+```text
+0  1  2  3  4
+```
+
+Valores:
+
+```text
+14 16 18 15 17
+```
+
+### Participa
+
+`notas[0]` vale:
+
+____________________________________________________________________
+
+`notas[3]` vale:
+
+____________________________________________________________________
+
+¿Por qué el último índice es 4 y no 5?
+
+____________________________________________________________________
+
+---
+
+# 6.7 Compilar
 
 ```text
 javac DatosYAlgoritmos.java
 ```
 
-**Qué debería ocurrir:** si no existen errores de sintaxis, se generará el archivo compilado correspondiente.
-
-## Paso 5. Ejecutar
+## 6.8 Ejecutar
 
 ```text
 java DatosYAlgoritmos
 ```
 
-**Resultado esperado:**
+Resultado esperado:
 
 ```text
 Suma: 80
@@ -428,78 +851,280 @@ Promedio: 16.0
 Aprobado: true
 ```
 
-## Paso 6. Modificación controlada
+---
 
-Cambia los valores del arreglo por:
+# 6.9 Comparar
+
+| Elemento | Predicción | Ejecución | ¿Coincidió? |
+|---|---|---|---|
+| Suma | | | |
+| Promedio | | | |
+| Aprobado | | | |
+
+---
+
+# 6.10 Modificación controlada
+
+Cambia:
 
 ```java
 int[] notas = {8, 10, 12, 11, 9};
 ```
 
-Antes de ejecutar, responde:
+Antes de ejecutar:
 
-- ¿Qué tipo de dato contiene el arreglo? __________________________
-- ¿El tamaño del arreglo cambia? _________________________________
-- ¿Esperas que `aprobado` sea verdadero o falso? _________________
+Suma esperada:
 
-Compila y ejecuta nuevamente.
+____________________________________________________________________
 
-**Cómo comprobarlo:** compara tu predicción con la salida real.
+Promedio esperado:
 
-**Si aparece un problema:**
+____________________________________________________________________
 
-- Si `javac` no se reconoce, revisa la preparación del entorno.
-- Si el nombre de la clase y el archivo no coinciden, corrígelo.
-- Si falta un punto y coma, Java mostrará un error de compilación.
-- Si editaste el archivo después de compilar, vuelve a ejecutar `javac` antes de `java`.
+`aprobado` esperado:
+
+____________________________________________________________________
+
+Ejecuta:
+
+```text
+javac DatosYAlgoritmos.java
+java DatosYAlgoritmos
+```
+
+Compara con tu predicción.
 
 ---
 
-# BLOQUE 7. RELACIÓN ENTRE ALGORITMOS Y ESTRUCTURAS DE DATOS
+# 6.11 Mini reto
 
-**Objetivo:** explicar por qué una solución depende tanto de los pasos del algoritmo como de la forma de organizar los datos.
+Usa:
 
-**Concepto trabajado:** relación entre algoritmo, estructura de datos y uso eficiente de recursos.
+```java
+int[] notas = {13, 13, 13, 13, 13};
+```
 
-**Explicación breve:** el algoritmo describe el trabajo que debe realizarse; la estructura de datos organiza la información que el algoritmo necesita procesar. La selección adecuada ayuda a que el programa sea más claro y eficiente.
+Antes de ejecutar responde:
 
-## Ejemplo de la pila de platos
+1. Suma: ___________________________________________________________
+2. Promedio: _______________________________________________________
+3. ¿`aprobado` será `true` o `false`? ______________________________
+4. ¿El tamaño del arreglo cambió? __________________________________
+5. ¿Por qué sigue siendo estático? __________________________________
 
-Una pila de platos ilustra el comportamiento “último en entrar, primero en salir”. Si el acceso natural es desde la parte superior, intentar retirar primero un elemento ubicado debajo obliga a manipular otros elementos antes.
+---
 
-La idea importante es observar que la forma en la que los datos están organizados influye en cómo conviene procesarlos.
+# BLOQUE 7. RELACIÓN ENTRE ALGORITMO Y ESTRUCTURA
 
-## Actividad integradora
+## Objetivo
 
-### Caso: registro de cinco tiempos de ejecución
+Comprender que la forma de organizar los datos influye en cómo conviene procesarlos.
 
-Necesitas registrar exactamente cinco valores numéricos y calcular su promedio.
+## Ejemplo: pila de platos
 
-Completa:
+```text
+Plato 4
+Plato 3
+Plato 2
+Plato 1
+```
 
-1. **Datos de entrada:** __________________________________________
-2. **Tipo de dato principal:** ____________________________________
-3. **Estructura propuesta:** ______________________________________
-4. **¿Estática o dinámica?:** _____________________________________
-5. **Proceso principal:** __________________________________________
-6. **Salida esperada:** ___________________________________________
-7. **¿Por qué la estructura elegida es adecuada?:**
+Si quieres retirar un plato, el acceso natural comienza desde arriba.
 
-   ________________________________________________________________
+### Participa
 
-   ________________________________________________________________
+¿Qué ocurriría si intentaras retirar primero el plato inferior?
 
-### Evidencia requerida
+____________________________________________________________________
 
-Prepara un único archivo o documento con:
+¿Qué nos enseña esto sobre la estructura?
 
-- Tu algoritmo para calcular el promedio de tres notas.
-- La tabla de entrada, proceso y salida del área de un rectángulo.
-- La clasificación de tipos de datos.
-- La actividad de clasificación de estructuras.
-- La comparación estática/dinámica.
-- Una captura o copia de la salida del programa `DatosYAlgoritmos`.
-- Las respuestas de la actividad integradora.
+____________________________________________________________________
+
+---
+
+# BLOQUE 8. CASO INTEGRADOR
+
+Necesitas registrar exactamente cinco tiempos:
+
+```text
+4.5
+5.2
+3.8
+4.9
+5.0
+```
+
+y calcular su promedio.
+
+## Paso 1. Tipo de dato
+
+____________________________________________________________________
+
+## Paso 2. Estructura
+
+____________________________________________________________________
+
+## Paso 3. Clasificación por disposición
+
+____________________________________________________________________
+
+## Paso 4. Clasificación por tamaño
+
+____________________________________________________________________
+
+## Paso 5. Entrada
+
+____________________________________________________________________
+
+## Paso 6. Proceso
+
+____________________________________________________________________
+
+## Paso 7. Salida
+
+____________________________________________________________________
+
+## Justificación
+
+> Elegí esta estructura porque ______________________________________
+
+____________________________________________________________________
+
+---
+
+# BLOQUE 9. RETO FINAL DE CLASE
+
+Diseña un problema pequeño que utilice:
+
+- al menos tres datos;
+- entrada;
+- proceso;
+- salida;
+- un tipo de dato identificado;
+- una estructura trabajada;
+- un algoritmo de al menos cinco pasos.
+
+## Problema
+
+____________________________________________________________________
+
+## Datos
+
+____________________________________________________________________
+
+## Tipos
+
+____________________________________________________________________
+
+## Estructura
+
+____________________________________________________________________
+
+## Algoritmo
+
+1. _________________________________________________________________
+2. _________________________________________________________________
+3. _________________________________________________________________
+4. _________________________________________________________________
+5. _________________________________________________________________
+6. _________________________________________________________________
+
+## Entrada
+
+____________________________________________________________________
+
+## Proceso
+
+____________________________________________________________________
+
+## Salida
+
+____________________________________________________________________
+
+## ¿Por qué elegiste esa estructura?
+
+____________________________________________________________________
+
+____________________________________________________________________
+
+---
+
+# PREGUNTAS DE COMPROBACIÓN FINAL
+
+1. ¿Qué hace que una secuencia sea un algoritmo?
+
+   _________________________________________________________________
+
+2. ¿Qué significa que sea definido?
+
+   _________________________________________________________________
+
+3. ¿Qué diferencia existe entre entrada y salida?
+
+   _________________________________________________________________
+
+4. ¿Qué tipo representa verdadero o falso?
+
+   _________________________________________________________________
+
+5. ¿Qué diferencia existe entre carácter y cadena?
+
+   _________________________________________________________________
+
+6. ¿Qué diferencia principal existe entre estática y dinámica?
+
+   _________________________________________________________________
+
+7. ¿Por qué un arreglo de cinco posiciones puede ser estático?
+
+   _________________________________________________________________
+
+8. ¿Qué significa LIFO?
+
+   _________________________________________________________________
+
+9. ¿Qué significa FIFO?
+
+   _________________________________________________________________
+
+10. Explica la relación entre algoritmo y estructura de datos.
+
+   _________________________________________________________________
+
+   _________________________________________________________________
+
+---
+
+# ERRORES FRECUENTES
+
+| Problema | Qué revisar |
+|---|---|
+| El algoritmo es demasiado general | Convertir acciones vagas en pasos concretos |
+| Se confunden entrada y salida | Identificar qué existe antes y qué aparece después |
+| Se confunden entero y real | Revisar si el valor puede tener decimales |
+| Se confunden carácter y cadena | Un carácter frente a una secuencia |
+| Se mezclan lineal, estática y volátil | Aplicar cada criterio por separado |
+| `javac` no se reconoce | Consultar al docente antes de modificar el equipo |
+| Se muestra un resultado anterior | Volver a compilar antes de ejecutar |
+| Se usa un índice inexistente | Cinco elementos usan índices 0 a 4 |
+
+---
+
+# EVIDENCIA DE APRENDIZAJE
+
+Prepara:
+
+1. algoritmo del promedio de tres notas;
+2. ejercicio de entrada-proceso-salida;
+3. tabla de tipos de datos;
+4. clasificación de estructuras;
+5. respuestas de estáticas y dinámicas;
+6. predicción y ejecución del programa Java;
+7. mini reto de cinco notas iguales;
+8. caso integrador;
+9. reto final diseñado por ti;
+10. respuestas de comprobación.
 
 Nombre sugerido:
 
@@ -507,83 +1132,45 @@ Nombre sugerido:
 S01_Datos_Algoritmos_ApellidoNombre
 ```
 
-No se define aquí una plataforma ni una fecha de entrega; utiliza las indicaciones vigentes de tu aula virtual.
-
 ---
 
-# ERRORES FRECUENTES Y SOLUCIONES
+# CHECKLIST FINAL
 
-| Problema observado | Causa probable | Qué revisar | Solución recomendada |
-|---|---|---|---|
-| El algoritmo no termina | No se definió una condición o final claro | Último paso | Reescribir la secuencia con un cierre explícito |
-| Entrada y salida están confundidas | No se identificó qué dato se recibe y cuál se produce | Tabla entrada-proceso-salida | Separar información inicial del resultado |
-| Tipo de dato incorrecto | Se eligió el tipo por apariencia y no por significado | Naturaleza del valor | Revisar si es entero, real, lógico, carácter o cadena |
-| Se confunden criterios de clasificación | Se mezclan disposición, tamaño y almacenamiento | Criterio preguntado | Clasificar cada criterio por separado |
-| `java` o `javac` no se reconoce | JDK ausente o configuración incompleta | `java -version` y `javac -version` | Consultar al docente antes de cambiar el equipo institucional |
-| El programa no compila | Error de sintaxis o nombre de archivo/clase | Mensaje de compilación | Corregir el primer error reportado y volver a compilar |
-
----
-
-# PREGUNTAS DE COMPROBACIÓN
-
-1. ¿Qué diferencia existe entre un algoritmo y un programa?
-
-   ________________________________________________________________
-
-2. ¿Por qué un algoritmo debe ser finito?
-
-   ________________________________________________________________
-
-3. ¿Qué tres partes fundamentales se identifican en un algoritmo?
-
-   ________________________________________________________________
-
-4. ¿Qué tipo de dato utilizarías para representar una condición de verdadero o falso?
-
-   ________________________________________________________________
-
-5. ¿Cuál es la diferencia principal entre una estructura estática y una dinámica?
-
-   ________________________________________________________________
-
-6. Menciona una estructura lineal y una no lineal trabajadas en la sesión.
-
-   ________________________________________________________________
-
-7. ¿Por qué la elección de la estructura de datos puede afectar la eficiencia de una solución?
-
-   ________________________________________________________________
-
----
-
-# VERIFICACIÓN FINAL
-
-- [ ] Comprendo qué es un algoritmo.
-- [ ] Puedo identificar precisión, definición y finitud.
+- [ ] Puedo explicar qué es un algoritmo.
+- [ ] Identifico precisión, definición y finitud.
 - [ ] Distingo entrada, proceso y salida.
-- [ ] Identifico los tipos de datos trabajados.
-- [ ] Puedo clasificar estructuras por disposición, tamaño y almacenamiento.
-- [ ] Diferencio estructuras estáticas y dinámicas.
-- [ ] Ejecuté o analicé el ejemplo Java con un arreglo.
-- [ ] Revisé los errores frecuentes.
-- [ ] Completé la actividad integradora.
-- [ ] Preparé mi evidencia de entrega.
+- [ ] Reconozco los tipos de datos trabajados.
+- [ ] Distingo los tres criterios de clasificación.
+- [ ] Diferencio estáticas y dinámicas.
+- [ ] Puedo explicar LIFO y FIFO con ejemplos.
+- [ ] Comprendo qué representa un arreglo.
+- [ ] Puedo leer el ejemplo Java.
+- [ ] Predije resultados antes de ejecutar.
+- [ ] Comparé predicción y resultado.
+- [ ] Puedo explicar la relación entre algoritmo y estructura.
+- [ ] Participé resolviendo ejemplos durante la clase.
 
 ---
 
-# CIERRE Y RECURSOS DE REFUERZO
+# CIERRE
 
-En esta sesión aprendiste a observar un problema desde tres elementos esenciales: **los datos**, **los pasos que los transforman** y **la estructura utilizada para organizarlos**. También comprobaste que un algoritmo debe ser preciso, definido y finito, y que las estructuras de datos pueden clasificarse desde diferentes criterios.
+La idea central de esta sesión es:
 
-Repasa especialmente:
+```text
+PROBLEMA
+   ↓
+DATOS
+   ↓
+ALGORITMO
+   ↓
+ESTRUCTURA
+   ↓
+IMPLEMENTACIÓN
+   ↓
+RESULTADO
+```
 
-- Entrada, proceso y salida.
-- Tipos de datos.
-- Diferencias entre estructura estática y dinámica.
-- Clasificación lineal/no lineal y volátil/permanente.
-- Relación entre algoritmo, estructura de datos y eficiencia.
-
-En la siguiente etapa del curso podrás utilizar estas bases para comprender y aplicar estructuras y algoritmos con mayor profundidad.
+Antes de programar debes comprender el problema, identificar los datos, ordenar los pasos y decidir cómo organizar la información.
 
 **Blog:** https://lideratecacademy.com/  
 **Canal YouTube:** https://www.youtube.com/@LideratecAcademy
